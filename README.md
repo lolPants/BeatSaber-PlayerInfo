@@ -41,6 +41,13 @@ Sets `Proof` back to `null` before validating.
 Fires the `Action<string, ulong> PlayerInfoLoaded` event with `Proof` as the argument.  
 **Warning:** Does not fire if the user fails the check.
 
+## Building this plugin
+In order to build this plugin you will need access to both the Steam and Oculus Home versions of Beat Saber. The project currently uses the Steam version located on the `C:\` drive of my PC.
+
+You need `Assembly-CSharp.dll` from the Oculus Home version, placed in a directory at the root of this repo named `.managed`.
+
+You also need `Assembly-CSharp-firstpass.dll` from the Steam version, referenced in the game's directory.
+
 ## Thanks
 |  |  |
 | - | - |
