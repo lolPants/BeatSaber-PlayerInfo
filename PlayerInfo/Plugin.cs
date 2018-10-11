@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
+using PlayerInfoPlugin.Misc;
 using IllusionPlugin;
 
 namespace PlayerInfoPlugin
@@ -31,5 +32,10 @@ namespace PlayerInfoPlugin
         public void OnLevelWasLoaded(int level) { }
 
         public void OnUpdate() {}
+    }
+
+    public static class PlayerInfo
+    {
+        public static IInfoManager Manager = new DefaultInfoManager();
     }
 }
