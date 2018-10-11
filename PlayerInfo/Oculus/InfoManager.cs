@@ -11,8 +11,10 @@ namespace PlayerInfoPlugin.Oculus
 
         public string Username { get; private set; }
         public ulong UserID { get; private set; }
+        public string Proof { get; private set; }
 
         public event Action<string, ulong> PlayerInfoLoaded;
+        public event Action<string> PlayerProofGenerated;
 
         public void LoadPlayerInfo()
         {
@@ -26,6 +28,20 @@ namespace PlayerInfoPlugin.Oculus
                     PlayerInfoLoaded.Invoke(Username, UserID);
                 });
             }
+        }
+
+        public void RequestPlayerProof()
+        {
+            Proof = null;
+
+            Users.GetUserProof().OnComplete((Message<UserProof> proof) =>
+            {
+                if (!proof.IsError)
+                {
+                    Proof = proof.GetUserProof().Value;
+                    PlayerProofGenerated.Invoke(Proof);
+                }
+            });
         }
     }
 }
