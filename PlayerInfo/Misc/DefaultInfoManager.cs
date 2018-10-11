@@ -14,6 +14,8 @@ namespace PlayerInfoPlugin.Misc
         public string Username { get; private set; }
         public ulong UserID { get; private set; }
 
+        public event Action<string, ulong> PlayerInfoLoaded;
+
         public void LoadPlayerInfo()
         {
             Username = "Player";

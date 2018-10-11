@@ -12,6 +12,8 @@ namespace PlayerInfoPlugin.Oculus
         public string Username { get; private set; }
         public ulong UserID { get; private set; }
 
+        public event Action<string, ulong> PlayerInfoLoaded;
+
         public void LoadPlayerInfo()
         {
             if (Username == null || UserID == 0)
@@ -20,6 +22,8 @@ namespace PlayerInfoPlugin.Oculus
                 {
                     Username = msg.Data.OculusID;
                     UserID = msg.Data.ID;
+
+                    PlayerInfoLoaded.Invoke(Username, UserID);
                 });
             }
         }

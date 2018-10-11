@@ -9,6 +9,8 @@ namespace PlayerInfoPlugin.Misc
         string Username { get; }
         ulong UserID { get; }
 
+        event Action<string, ulong> PlayerInfoLoaded;
+
         void LoadPlayerInfo();
     }
 }
