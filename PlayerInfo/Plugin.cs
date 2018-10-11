@@ -13,11 +13,19 @@ namespace PlayerInfoPlugin
         public void OnApplicationStart()
         {
             SceneManager.sceneLoaded += SceneLoaded;
+
+            if (Platform.ReleaseType == Platform.Release.Steam)
+                PlayerInfo.Manager = new Steam.InfoManager();
+            else if (Platform.ReleaseType == Platform.Release.Oculus)
+                PlayerInfo.Manager = new Oculus.InfoManager();
         }
 
         private void SceneLoaded(Scene scene, LoadSceneMode arg1)
         {
+            if (scene.name != "Menu")
+                return;
 
+            PlayerInfo.Manager.LoadPlayerInfo();
         }
 
         public void OnApplicationQuit()
