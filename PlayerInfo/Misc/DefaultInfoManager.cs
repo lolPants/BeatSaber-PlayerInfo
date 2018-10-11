@@ -1,9 +1,4 @@
-﻿using PlayerInfoPlugin.Misc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace PlayerInfoPlugin.Misc
 {
@@ -13,13 +8,17 @@ namespace PlayerInfoPlugin.Misc
 
         public string Username { get; private set; }
         public ulong UserID { get; private set; }
+        public string Proof => null;
 
         public event Action<string, ulong> PlayerInfoLoaded;
+        public event Action<string> PlayerProofGenerated;
 
         public void LoadPlayerInfo()
         {
             Username = "Player";
             UserID = 0;
         }
+
+        public void RequestPlayerProof() { }
     }
 }
