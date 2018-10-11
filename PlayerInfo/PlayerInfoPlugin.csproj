@@ -7,7 +7,7 @@
     <ProjectGuid>{395D3063-9EB6-4A42-A402-E3B33A158FD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlayerInfo</RootNamespace>
+    <RootNamespace>PlayerInfoPlugin</RootNamespace>
     <AssemblyName>PlayerInfo</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -61,8 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Misc\DefaultInfoManager.cs" />
+    <Compile Include="Misc\IInfoManager.cs" />
+    <Compile Include="Misc\Platform.cs" />
+    <Compile Include="Oculus\InfoManager.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steam\InfoManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
